@@ -4,76 +4,74 @@ Date: 03/2023
 Programming Language: 3.11.2 64 Python
 Environement: VsCode and Microsoft CMD command line prompt
 
-# STRUCTURE 
-The driver code is specified in 'algo_main.py'. This python file is responsible for several functions related to sorting algorithms, as well as an AlgorithmData 
-class that holds information about the data and the execution time of a sorting algorithm. This file calls the following python modules:
+# Structure
 
-## algo_sorting.py - file contains several sorting algorithms implemented in Python.
-1. merge_sort(arr, data): 
-2. heap_sort(arr, data): This function implements the heap sort algorithm. 
-3. heapify(arr, n, i): This is a helper function for the heap_sort function.
-4. quick_sort(arr): This function implements the quick sort algorithm usininto two sub-arrays 
-around the pivot until the base case of an array with a single element is reached. 
-5. quick_sort_median(arr): partitions the array into three sub-arrays around the pivot, then recursively 
-sorts the left and right sub-arrays before concatenating them with the pivot sub-array.
-6. selection_sort(arr, data): This function finds the minimum element in the unsorted part of the array
-and swaps it with the first element of the unsorted part.
-7.insertion_sort(arr, data): This function implements the insertion sort algorithm
-8. bubble_sort(arr, data): This function implements the bubble sort algorithm.
+The program structure is as follows:
 
+## `algo_main.py`
 
-* algo_main.py - This is a Python script that defines several functions related to sorting algorithms, as well as an AlgorithmData class that holds
-     information about the data and the execution time of a sorting algorithm.
-    o	choose_algorithm():  takes a string parameter choice that determines which sorting algorithm to run 
-        on the global array variable, and updates the global algorithm_data variable with the execution time and sorted array. 
-    o	create_array():  creates a random array of integers of length size, and updates the global array variable with the new array.
-    o   compare_algorithms():   compares the results of the two most recent sorting algorithm runs stored in the global 
-        list_of_sorted list, and prints the results to the console using the algo_gui.comparison_screen function.
-    o	algo_graph():  displays a graph of the most recent sorting algorithm run using the algo_gui.graphing_screen function.
+The driver code is specified in `algo_main.py`. This Python file is responsible for several functions related to sorting algorithms and includes the `AlgorithmData` class that holds information about the data and the execution time of a sorting algorithm. It calls the following Python modules:
 
-* algorthim_view.py (GUI)- module for a GUI application that allows the user to choose and compare sorting algorithms on randomly generated arrays of integers.
-    o	The initialize_gui() function creates a main window for the GUI, where the user can input the desired size of 
-        the array to be sorted and select a sorting algorithm using buttons. 
-    o	The array_to_screen() function creates a new window to display the details of the selected sorting algorithm, 
-        including the algorithm name, array size, start time, end time, run time, bytes per microsecond, and unsorted array.
-    o	The module imports the tkinter module and uses its functions and widgets to create the GUI, as well as several functions from the
-         algo_main module and algo_sorting module to perform the actual sorting. 
+## `algo_sorting.py`
 
-* algo_graph.py - This Python module is called "algo_graph.py".
-    o	The purpose of the "graphing" function is to plot a graph of input sizes vs runtimes in microseconds.
-    o	The function adds the graph_name to the graph_names list and prints a message indicating that it is graphing the specified algorithm. 
+This file contains several sorting algorithms implemented in Python:
 
-* inputs.txt
-    o   Since, arrays are randomized using the random python module, no input are needed. This file is included to fit with the grading criterion.
+1. `merge_sort(arr, data)`: Performs merge sort on the array.
+2. `heap_sort(arr, data)`: Implements the heap sort algorithm.
+3. `heapify(arr, n, i)`: A helper function for the `heap_sort` function.
+4. `quick_sort(arr)`: Implements the quick sort algorithm by recursively partitioning the array into two sub-arrays around a pivot until the base case of an array with a single element is reached.
+5. `quick_sort_median(arr)`: Partitions the array into three sub-arrays around the pivot and recursively sorts them before concatenating them with the pivot sub-array.
+6. `selection_sort(arr, data)`: Finds the minimum element in the unsorted part of the array and swaps it with the first element of the unsorted part.
+7. `insertion_sort(arr, data)`: Implements the insertion sort algorithm.
+8. `bubble_sort(arr, data)`: Implements the bubble sort algorithm.
 
+## `algorithm_view.py` (GUI)
 
-* <sorting name>.png
-    o   After graphing an algorithm, the program will save a png of the graph in the current running directory.
+This module is a GUI application that allows the user to choose and compare sorting algorithms on randomly generated arrays of integers. It includes the following functions:
 
-# Program Logic 
-1)  User is prompted to a screen that has a a variety of sorting algorithms (such as Merge Sort, Heap Sort, Quick Sort, etc.) to sort an array of random integers, and displays the results of each algorithm in real time.
-2) The user must enter in the array size then press 'Submit'
-3) The user then can interact with the program by choosing an algorithm to run, comparing the results of two algorithms, and graphing the run time of an algorithm.
-4) The GUI will then show and display the details of the algorithm's  performance (start and end time, run time, number of bytes per microsecond, unsorted and sorted arrays) in a separate window.
+- `initialize_gui()`: Creates a main window for the GUI, where the user can input the desired size of the array to be sorted and select a sorting algorithm using buttons.
+- `array_to_screen()`: Creates a new window to display the details of the selected sorting algorithm, including the algorithm name, array size, start time, end time, run time, bytes per microsecond, and unsorted array. It imports the `tkinter` module and uses its functions and widgets to create the GUI, as well as several functions from the `algo_main` module and `algo_sorting` module to perform the actual sorting.
 
-# HOW TO RUN 
+## `algo_graph.py`
+
+This Python module, named `algo_graph.py`, is responsible for plotting a graph of input sizes versus runtimes in microseconds. It includes the following function:
+
+- `graphing()`: Adds the `graph_name` to the `graph_names` list and prints a message indicating that it is graphing the specified algorithm.
+
+## Additional Files
+
+- `inputs.txt`: This file is included but not necessary since the arrays are randomized using the Python `random` module.
+- `<sorting name>.png`: After graphing an algorithm, the program will save a PNG image of the graph in the current running directory.
+
+# Program Logic
+
+The program follows the following logic:
+
+1. The user is prompted to a screen that displays a variety of sorting algorithms (such as Merge Sort, Heap Sort, Quick Sort, etc.) to sort an array of random integers. The program shows the results of each algorithm in real-time.
+2. The user must enter the desired array size and press 'Submit'.
+3. The user can then interact with the program by choosing an algorithm to run, comparing the results of two algorithms, and graphing the run-time of an algorithm.
+4. The GUI displays the details of the algorithm's performance, including the start and end time, run-time, number of bytes per microsecond, unsorted and sorted arrays, in a separate window.
+
+# How to Run
+
 There are two ways to run this program:
 
 ## Windows CMD:
-Unzip the downloaded file.
-Open your Windows terminal.
-Make sure you have python version 3 or higher installed.
-Locate the directory the source code where 'algo_main.py' is located: cd C:\Users\ .... \algo_main.py
-Then, from the command-line run: 'python algo_main.py'
-The code should then output the reults
+1. Unzip the downloaded file.
+2. Open your Windows terminal.
+3. Make sure you have Python version 3 or higher installed.
+4. Navigate to the directory where the source code, specifically 'algo_main.py', is located using the command: `cd C:\Users\ .... \algo_main.py`
+5. Run the program by executing the following command in the command-line: `python algo_main.py`
+6. The code should then output the results.
 
-## Vscode:
-Unzip the downloaded file.
-Open the folder in vscode and select 'trust this folder'
-Set up your vscode to have a python Environement
-    * Hold down SHIFT+CTRL+P and select 'Python:select interpter' and choose the path where python is installed on your system
-Find the 'red_blue_nim.py' and right click and select 'Run python file in terminal'
-    * This will open a terminal in Vscode using a python interpreter.
-Now, with the terminal open, enter 'python algo_main.py'
-The program should then run and print the neccessary outputs
-
+## VScode:
+1. Unzip the downloaded file.
+2. Open the folder in VScode and select 'Trust this folder' if prompted.
+3. Set up your VScode to have a Python Environment:
+   - Hold down SHIFT+CTRL+P and select 'Python: Select Interpreter'
+   - Choose the path where Python is installed on your system.
+4. Find the 'algo_main.py' file in the folder and right-click on it.
+5. Select 'Run Python File in Terminal'.
+   - This will open a terminal in VScode using a Python interpreter.
+6. Now, with the terminal open, enter the command `python algo_main.py`.
+7. The program should then run and print the necessary outputs.
